@@ -21,3 +21,16 @@ function ufoTable(data) {
 // Apply the function above with the tableData variable.
 ufoTable(tableData);
 
+
+
+// Creaitng the Filter Table button
+var button = d3.select("#filter-btn");
+var form = d3.select("#form-group");
+
+function runEnter() {
+    var dateFilterSearch = d3.select("#datetime")
+
+}
+
+button.on("click", runEnter);
+form.on("submit", runEnter);
