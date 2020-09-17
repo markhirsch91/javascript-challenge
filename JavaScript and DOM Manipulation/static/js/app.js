@@ -28,9 +28,18 @@ var button = d3.select("#filter-btn");
 var form = d3.select("#form-group");
 
 function runEnter() {
-    var dateFilterSearch = d3.select("#datetime")
+    var dateFilterSearch = d3.select("#datetime");
+    var dateTimeValue = dateFilterSearch.property("value");
 
-}
+    if(dateTimeValue === "") {
+        // This is the default view, showing all the table data in this first part of the if statement.
+        var displayData = tableData;
+    }
+    else {
+        var displayData = tableData.filter(data => data.datetime === dateTimeValue);
+    }
+};
 
-button.on("click", runEnter);
-form.on("submit", runEnter);
+
+// button.on("click", runEnter);
+// form.on("submit", runEnter);
