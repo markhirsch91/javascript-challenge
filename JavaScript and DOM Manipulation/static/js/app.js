@@ -45,6 +45,7 @@ function runEnter() {
         var filteredData = tableData.filter(ufoEvent => ufoEvent.datetime === inputValue.trim());
     }
     console.log(filteredData);
+    ufoTable(filteredData);
 
 };
 
