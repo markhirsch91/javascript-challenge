@@ -22,24 +22,31 @@ function ufoTable(data) {
 ufoTable(tableData);
 
 
-
 // Creaitng the Filter Table button
 var button = d3.select("#filter-btn");
 var form = d3.select("#form-group");
 
-function runEnter() {
-    var dateFilterSearch = d3.select("#datetime");
-    var dateTimeValue = dateFilterSearch.property("value");
+// This will begin filtering the database from the Filter Table button
+button.on("click", runEnter);
+form.on("submit", runEnter);
 
-    if(dateTimeValue === "") {
-        // This is the default view, showing all the table data in this first part of the if statement.
-        var displayData = tableData;
+function runEnter() {
+    d3.event.preventDefault();
+    var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
+
+    console.log(inputValue);
+    console.log(tableData);
+
+    if (inputValue.trim() === "") {
+        var filteredData = tableData;
     }
     else {
-        var displayData = tableData.filter(data => data.datetime === dateTimeValue);
+        var filteredData = tableData.filter(ufoEvent => ufoEvent.datetime === inputValue.trim());
     }
-};
+    console.log(filteredData);
 
+};
 
 // button.on("click", runEnter);
 // form.on("submit", runEnter);
